@@ -5,7 +5,12 @@ snipMate Snippets
 
 Forked from [honza/vim-snippets](https://github.com/honza/vim-snippets).
 
-Updated snippets: `R.snippets`, `Rmd.snippets`, `cpp.snippets`, `markdown.snippets`.
+Updated snippets:   
+- `R.snippets`  
+- `Rmd.snippets`  
+- `cpp.snippets`  
+- `markdown.snippets`  
+- `tex.snippets`
 
 
 License

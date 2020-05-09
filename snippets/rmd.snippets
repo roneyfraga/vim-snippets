@@ -1,4 +1,4 @@
-# library()
+# library
 snippet lib
 	library(${1:})
 	${2:}
@@ -182,6 +182,56 @@ snippet rig
 # distinct
 snippet dis
 	distinct(${1})
+# separate_rows
+snippet sep
+	separate_rows(${1}, sep=${2})
 # dbplyr
 snippet dbp
 	dbplyr::${1}
+########################################
+# Markdown
+# The suffix `c` stands for "Clipboard".
+# LINKS
+snippet [
+	[${1:text}](http://${2:address})
+snippet -[
+	- [${1:text}](http://${2:address})
+snippet [*
+	[${1:link}](${2})
+snippet [c
+	[${1:link}](${2:`@+`})
+snippet -[*
+	- [${1:link}](${2})
+snippet -[c
+	- [${1:link}](${2:`@+`})
+# IMAGES
+snippet ![
+	![${1}](${2})
+snippet ![c
+	![${1:alt}](${2:`@+`})
+# TEXT BETWEEN 
+snippet <
+	<http://${1:url}>
+snippet <*
+	<${1}>
+snippet <c
+	<`@+`>
+snippet **
+	**${1:bold}**
+snippet __
+	__${1:bold}__
+snippet *
+	*${1:italic}*
+snippet _
+	_${1:italic}_
+# CODE 
+snippet `
+	\`\`\`
+	${1:code}
+	\`\`\`
+snippet `l
+	\`\`\`${1:language}
+	${2:code}
+	\`\`\`
+snippet `r
+	\`\`\`{r eval=T, echo=T, warning=F, error=T, tidy=F, message=F}
