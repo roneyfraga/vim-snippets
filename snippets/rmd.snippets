@@ -1,205 +1,187 @@
-#
-# Snipmate Snippets for Pandoc Markdown
-#
-# Many snippets have starred versions, i.e., versions
-# that end with an asterisk (`*`). These snippets use
-# vim's `"*` register---i.e., the contents of the
-# system clipboard---to insert text.
-
-# Insert Title Block
-snippet %%
-	% ${1:`Filename('', 'title')`}
-	% ${2:`g:snips_author`}
-	% ${3:`strftime("%d %B %Y")`}
-
-	${4}
-snippet %%*
-	% ${1:`Filename('', @*)`}
-	% ${2:`g:snips_author`}
-	% ${3:`strftime("%d %b %Y")`}
-
-	${4}
-
-# Insert Definition List
-snippet ::
-	${1:term}
-	  ~  ${2:definition}
-
-# Underline with `=`s or `-`s
-snippet ===
-	`repeat('=', strlen(getline(line(".") - 1)))`
-	
-	${1}
-snippet ---
-	`repeat('-', strlen(getline(line(".") - 1)))`
-	
-	${1}
-
-# Links and their kin
-# -------------------
-#
-# (These don't play very well with delimitMate)
-#
-
-snippet [
-	[${1:link}](http://${2:url} "${3:title}")${4}
-snippet [*
-	[${1:link}](${2:`@*`} "${3:title}")${4}
-
-snippet [:
-	[${1:id}]: http://${2:url} "${3:title}"
-snippet [:*
-	[${1:id}]: ${2:`@*`} "${3:title}"
-
-snippet [@
-	[${1:link}](mailto:${2:email})${3}
-snippet [@*
-	[${1:link}](mailto:${2:`@*`})${3}
-
-snippet [:@
-	[${1:id}]: mailto:${2:email} "${3:title}"
-snippet [:@*
-	[${1:id}]: mailto:${2:`@*`} "${3:title}"
-
-snippet ![
-	![${1:alt}](${2:url} "${3:title}")${4}
-snippet ![*
-	![${1:alt}](${2:`@*`} "${3:title}")${4}
-
-snippet ![:
-	![${1:id}]: ${2:url} "${3:title}"
-snippet ![:*
-	![${1:id}]: ${2:`@*`} "${3:title}"
-
-snippet [^:
-	[^${1:id}]: ${2:note}
-snippet [^:*
-	[^${1:id}]: ${2:`@*`}
-
-#
-
 # library()
+snippet lib
+	library(${1:})
+	${2:}
+# require
 snippet req
-	require(${1:}, quietly = TRUE)
+	require(${1:package})
+	${2:}
+# source 
+snippet sou
+	source('${1:file}')
+	${2:}
+# install.packages
+snippet ins
+	install.packages(c('${1:package.name}'), dependencies=TRUE) 
+	${2}
+# magrittR pipe
+snippet pipe
+	%>%${1} 
+# pipeR 
+snippet pp
+	%>>% ${1}
 # If Condition
 snippet if
-	if ( ${1:condition} )
-	{
-		${2:}
-	}
-snippet el
-	else
-	{
-		${1:}
-	}
-
-# Function
+	if(${1:condition}){
+	    ${2:}
+	}${3:}
+snippet els
+	else {
+	    ${1:}
+	}${2:}
+snippet whi
+	while(${1:condition}){
+	    ${2:}
+	}${3:}
+# For Loop
+snippet for
+	for(${1:i} in ${2:range}){
+	    ${3:}
+	}${4:}
+## Function
 snippet fun
-	${1:funname} <- 			# ${2:}
-		function
-	(
-	 	${3:}
-	)
+	${1:funname} <- function(${2:})
 	{
-	  ${4:}
-	}
+	    ${3:}
+	}${4:}
 # repeat
-snippet re
+snippet rep
 	repeat{
-	  ${2:}
-	  if(${1:condition}) break
-	}
-
-# matrix
-snippet ma
-	matrix(NA, nrow = ${1:}, ncol = ${2:})
-
-# data frame
+	    ${1:}
+	    if(${2:condition}) break
+	}${3:}
+# progress_bar
+snippet pro
+	progress_bar$new(format = "[:bar] :current/:total (:percent)", total = length(${1:length()}))
+# return
+snippet ret
+	return(${1})
+	${2:}
+# dataframes, lists, etc
 snippet df
-	data.frame(${1:}, header = TRUE)
-
-snippet cmdarg
-	args <- commandArgs(TRUE)
-	if (length(args) == 0)
-	    stop("Please give ${1:}!")
-	if (!all(file.exists(args)))
-	     stop("Couln't find input files!")
-
-snippet getopt
-	require('getopt', quietly = TRUE)
-	opt_spec <- matrix(c(
-					'help',     'h', 0, "logical", 	"Getting help",
-					'file',     'f', 1, "character","File to process"
-	                ), ncol = 5, byrow = TRUE)
-	opt <- getopt(spec = opt_spec)
-	if ( !is.null(opt$help) || is.null(commandArgs()) )   {
-	    cat(getopt(spec = opt_spec, usage = TRUE, command = "yourCmd"))
-	    q(status=0)
-	}
-	# some inital value
-	if ( is.null(opt$???) )    { opt$??? <- ??? }
-
-snippet optparse
-	require("optparse", quietly = TRUE)
-	option_list <-
-	    list(make_option(c("-n", "--add_numbers"), action="store_true", default=FALSE,
-	                     help="Print line number at the beginning of each line [default]")
-	         )
-	parser <- OptionParser(usage = "%prog [options] file", option_list=option_list)
-	arguments <- parse_args(parser, positional_arguments = TRUE)
-	opt <- arguments$options
-	
-	if(length(arguments$args) != 1) {
-	    cat("Incorrect number of required positional arguments\n\n")
-	    print_help(parser)
-	    stop()
-	} else {
-	    file <- arguments$args
-	}
-	
-	if( file.access(file) == -1) {
-	    stop(sprintf("Specified file ( %s ) does not exist", file))
-	} else {
-	    file_text <- readLines(file)
-	}
-
-snippet #!
-	#!/usr/bin/env Rscript
-
-snippet debug
-	# Development & Debugging, don't forget to uncomment afterwards!
-	#--------------------------------------------------------------------------------
-	#setwd("~/Projekte/${1:}")
-	#opt <- list(${2:}
-	#            )
-	#--------------------------------------------------------------------------------
-
-
-# Took from pandoc-plugin <<<<
-# Underline with `=`s or `-`s
-snippet #===
-	#`repeat('=', strlen(getline(line(".") - 1)))`
-	${1}
-snippet #---
-	#`repeat('-', strlen(getline(line(".") - 1)))`
-	${1}
-
-# >>>>
-
-snippet r
-	\`\`\`{r ${1:chung_tag}, echo = FALSE ${2:options}}
+	${1:name}[${2:rows}, ${3:cols}]
+	${4:}
+snippet mat
+	matrix(${1:data}, nrow=${2:rows}, ncol=${3:cols})
+	${4:}
+# apply functions
+snippet app
+	apply(${1:array}, ${2:margin}, ${3:function})
+	${4:}
+snippet lap
+	lapply(${1:list}, ${2:function})
 	${3:}
-	\`\`\`
-snippet ri
-	\`{r ${1:}}\`
+snippet sap
+	lapply(${1:list}, ${2:function})
+	${3:}
+snippet vap
+	vapply(${1:list}, ${2:function}, ${3:type})
+	${4:}
+snippet map
+	mapply(${1:function}, ${2:...})
+	${3:}
+snippet tap
+	tapply(${1:vector}, ${2:index}, ${3:function})
+	${4:}
+snippet rap
+	rapply(${1:list}, ${2:function})
+	${3:}
+# plot functions
+snippet plo
+	plot(${1:x}, ${2:y})
+	${3:}
+snippet ggp
+	ggplot(${1:data}, aes(${2:aesthetics}))${3:}
+snippet img
+	${1:(jpeg,bmp,png,tiff)}(filename="${2:filename}", width=${3}, height=${4}, unit="${5}")
+	${6:plot}
+	dev.off()${7:}
+# read
+snippet read
+	read.${1:csv}(
+				'${2:file}',
+				header = ${3:TRUE/FALSE},
+				sep = '${4:,}',
+				dec = '${5:.}',
+				row.names = ${6:TRUE/FALSE}
+				)${7:}
+# write
+snippet write
+	write.${1:csv}(
+				${2:x},
+				file = '${3:}',
+				sep = '${4:,}',
+				row.names = ${5:TRUE/FALSE},
+				col.names = ${6:TRUE/FALSE},
+				na = '${7:NA}'
+				)${8:}
+# subset
+snippet subset
+	subset(
+			${1:data},
+			${2:subset},
+			${3:select},
+		      )${4:}
+# qplot
+snippet	qqplot
+	qplot(${1:x}, ${2:y}, data = ${3:})
+	${4:}
 
-snippet copt
-	\`\`\` {r setup, echo = FALSE}
-		opts_chunk$set(fig.path='../figures/${1:}', cache.path='../cache/-'
-		, fig.align='center', fig.show='hold', par=TRUE)	
-		#opts_knit$set(upload.fun = imgur_upload) # upload images
-	\`\`\`
+# import
+snippet	imp
+	import("${1:y}")
+# export
+snippet	exp
+	export(${1:data}, "${2:file}")
 
-	
-# End of File ===================================================================
-# vim: set noexpandtab:
+# dplyr::
+snippet dpl
+	dplyr::${1}
+# glimpse
+snippet gli
+	glimpse(${1})
+# select
+snippet sel
+	select(${1})
+# arrange
+snippet arr
+	arrange(${1})
+# filter
+snippet fil
+	filter(${1})
+# group_by
+snippet gro
+	group_by(${1})
+# summarise
+snippet sum
+	summarise(${1})
+# mutate
+snippet mut
+	mutate(${1})
+# count
+snippet cou
+	count(${1}, sort=${2})
+# tally
+snippet tal
+	tally(${1}, sort=${2})
+# rename
+snippet ren
+	rename(${1} = ${2})
+# as_tibble
+snippet tib
+	as_tibble
+# print
+snippet pri
+	print(n = ${1})
+# left_join
+snippet lef
+	left_join(${1})	
+# right_join
+snippet rig
+	right_join(${1})
+# distinct
+snippet dis
+	distinct(${1})
+# dbplyr
+snippet dbp
+	dbplyr::${1}
