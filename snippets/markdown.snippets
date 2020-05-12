@@ -29,14 +29,25 @@ snippet <c
 	<`@+`>
 snippet **
 	**${1:bold}**
-snippet __
-	__${1:bold}__
+snippet **c
+		**`@+`**
 snippet *
 	*${1:italic}*
+snippet *c
+		*`@+`*
+snippet __
+	__${1:bold}__
+snippet __c
+		__`@+`__
 snippet _
 	_${1:italic}_
+snippet _c
+	_`@+`_
 snippet |
 	\`${1:inline code}\`
+snippet |c
+	\``@+`\`
+
 # CODE 
 snippet `
 	\`\`\`
@@ -46,6 +57,7 @@ snippet `c
 	\`\`\`
 	`@+`
 	\`\`\`
+	
 snippet `l
 	\`\`\`${1:language}
 	${2:code}
