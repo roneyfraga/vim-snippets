@@ -11,6 +11,7 @@ Updated snippets:
 - `cpp.snippets`  
 - `markdown.snippets`  
 - `tex.snippets`
+- `bib.snippets`
 
 
 License
