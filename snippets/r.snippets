@@ -188,3 +188,11 @@ snippet sep
 # dbplyr
 snippet dbp
 	dbplyr::${1}
+# paged_table
+snippet pag
+	rmarkdown::paged_table()
+# kable table
+snippet kab
+	(kable(.,'html')) %>>% 
+	kable_styling() %>>% 
+	scroll_box(width = "100%", height = "100%")
