@@ -180,10 +180,16 @@ snippet urlc
 	\\url{`@+`} ${0}
 snippet hrefc
 	\\href{`@+`}{${1}} ${0}
-# Review
+# REVIEW
 # todonotes
 snippet todo
-	\\todo[${1:inline or prepend}, color=green!40, text=\tiny]{${2}} ${0}
+	\\todo[inline,author=rfs]{${1}} ${0}
 # changes
 snippet rep
-	\\replaced{${1}}{${2}} ${0}
+	\\replaced[id=rfs]{${1}}{${2}} ${0}
+snippet add
+	\\added[id=rfs]{${1}} ${0}
+snippet del
+	\\deleted[id=rfs]{${1}} ${0}
+snippet com
+	\\comment[id=rfs]{${1}} ${0}
