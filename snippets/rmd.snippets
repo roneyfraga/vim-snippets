@@ -181,7 +181,7 @@ snippet rig
 	right_join(${1})
 # distinct
 snippet dis
-	distinct(${1})
+	distinct(${1}, .keep_all=TRUE)
 # separate_rows
 snippet sep
 	separate_rows(${1}, sep=${2})
