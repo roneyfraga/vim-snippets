@@ -16,10 +16,10 @@ snippet install
 	${2}
 # magrittR pipe
 snippet pipe
-	%>%
+	%>% 
 # pipeR 
 snippet pp
-	%>>%
+	%>>% 
 # If Condition
 snippet if
 	if(${1:condition}){
@@ -128,10 +128,10 @@ snippet	qqplot
 	${4:}
 # import
 snippet	imp
-	import("${1:y}")
+	import("${1:}") ${2:}
 # export
 snippet	exp
-	export(${1:data}, "${2:file}")
+	export(${1:data}, "${2:file}") ${3}
 # dplyr::
 snippet dpl
 	dplyr::${1}
