@@ -12,11 +12,11 @@ snippet sou
 	${2:}
 # install.packages
 snippet install
-	install.packages(c('${1:package.name}'), dependencies=TRUE)
+	install.packages(c('${1:package.name}'), dependencies=TRUE) 
 	${2}
 # magrittR pipe
 snippet pipe
-	%>% ${1}
+	%>%${1}
 # pipeR 
 snippet pp
 	%>>% ${1}
@@ -126,14 +126,12 @@ snippet subset
 snippet	qqplot
 	qplot(${1:x}, ${2:y}, data = ${3:})
 	${4:}
-
 # import
 snippet	imp
 	import("${1:y}")
 # export
 snippet	exp
 	export(${1:data}, "${2:file}")
-
 # dplyr::
 snippet dpl
 	dplyr::${1}
@@ -167,6 +165,9 @@ snippet tal
 # rename
 snippet ren
 	rename(${1} = ${2})
+# relocate
+snippet rel
+	relocate(${1})
 # as_tibble
 snippet tib
 	as_tibble
@@ -185,9 +186,23 @@ snippet dis
 # separate_rows
 snippet sep
 	separate_rows(${1}, sep=${2})
+# ungroup
+snippet ung
+	ungroup
 # dbplyr
 snippet dbp
 	dbplyr::${1}
+# tidygraph::as_tbl_graph
+snippet graph
+	as_tbl_graph(${1})
+# tidygraph::activate
+snippet act
+	activate(${1:nodes})
+# vector
+snippet vec
+	vector(${1:'numeric'}, ${2})
+########################################
+# Markdown functions
 # rmarkdown::paged_table
 snippet pag
 	rmarkdown::paged_table()
@@ -196,12 +211,30 @@ snippet kab
 	(kable(.,'html')) %>>% 
 	kable_styling() %>>% 
 	scroll_box(width = "100%", height = "100%")
-# tidygraph::as_tbl_graph
-snippet graph
-	as_tbl_graph(${1})
-# tidygraph::activate
-snippet act
-	activate(${1:nodes})
+# r file as rmd 
+snippet '
+	#' ${1}
+# datatable hide collumn
+snippet dt_hide
+    datatable(
+              rownames = FALSE,
+              extensions = 'Buttons', 
+              options = list( 
+                             dom = 'Bfrtip', pageLength = ${1},
+                             columnDefs = list(list(visible=FALSE, targets=c(${2}))), 
+                             buttons = list(list(extend = 'colvis', columns = c(${3})))
+                             )
+              )
+    )
+# datatable download button
+snippet dt_download
+    datatable(extensions = 'Buttons', rownames=F,
+              options = list(dom = 'Bfrtip', pageLength = ${1},
+                             buttons = list(list( 
+                                                 extend='collection', 
+                                                 buttons = list(list(extend='csv',filename='data'),
+                                                                list(extend='excel',filename='data')),
+                                                 text='Download'))))  
 ########################################
 # Markdown
 # The suffix `c` stands for "Clipboard".
@@ -259,7 +292,6 @@ snippet `c
 	\`\`\`
 	`@+`
 	\`\`\`
-	
 snippet `l
 	\`\`\`${1:language}
 	${2:code}
