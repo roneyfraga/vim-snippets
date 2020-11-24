@@ -200,14 +200,12 @@ snippet act
 	activate(${1:nodes})
 # vector
 snippet vec
-	vector(${1:'numeric'}, ${2})
+	vector(mode = ${1:'numeric/list/character/logical'}, length = ${2})
 # #' comment
 snippet '
 	#' ${1}
 snippet . 
 	(. -> ${1})
-snippet ~. 
-	(~ . -> ${1})
 ########################################
 # Markdown functions
 # rmarkdown::paged_table
