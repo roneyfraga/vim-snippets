@@ -201,6 +201,9 @@ snippet act
 # vector
 snippet vec
 	vector(${1:'numeric'}, ${2})
+# r file as rmd 
+snippet '
+	#' ${1}
 ########################################
 # Markdown functions
 # rmarkdown::paged_table
@@ -211,9 +214,6 @@ snippet kab
 	(kable(.,'html')) %>>% 
 	kable_styling() %>>% 
 	scroll_box(width = "100%", height = "100%")
-# r file as rmd 
-snippet '
-	#' ${1}
 # datatable hide collumn
 snippet dth
     datatable(
@@ -223,7 +223,7 @@ snippet dth
                              dom = 'Bfrtip', pageLength = ${1},
                              columnDefs = list(list(visible=FALSE, targets=c(${2}))), 
                              buttons = list(list(extend = 'colvis', columns = c(${3})))
-                             )))
+                             ))
 # datatable download button
 snippet dtd
     datatable(extensions = 'Buttons', rownames=F,
