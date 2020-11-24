@@ -12,12 +12,11 @@ snippet sou
 	${2:}
 # install.packages
 snippet install
-	install.packages(c('${1:package.name}'), dependencies=TRUE) 
-	${2}
+	install.packages(c('${1:package.name}'), dependencies=TRUE) ${2}
 # magrittR pipe
 snippet pipe
 	%>% 
-# pipeR 
+# pipeR  pipe
 snippet pp
 	%>>% 
 # If Condition
@@ -104,7 +103,7 @@ snippet read
 				sep = '${4:,}',
 				dec = '${5:.}',
 				row.names = ${6:TRUE/FALSE}
-				)${7:}
+				) ${7:}
 # write
 snippet write
 	write.${1:csv}(
@@ -114,7 +113,7 @@ snippet write
 				row.names = ${5:TRUE/FALSE},
 				col.names = ${6:TRUE/FALSE},
 				na = '${7:NA}'
-				)${8:}
+				) ${8:}
 # subset
 snippet subset
 	subset(
@@ -124,89 +123,88 @@ snippet subset
 		      )${4:}
 # qplot
 snippet	qqplot
-	qplot(${1:x}, ${2:y}, data = ${3:})
-	${4:}
+	qplot(${1:x}, ${2:y}, data = ${3:}) 
 # import
 snippet	imp
-	import("${1:}") ${2:}
+	import("${1:}") ${2}
 # export
 snippet	exp
 	export(${1:data}, "${2:file}") ${3}
 # dplyr::
 snippet dpl
-	dplyr::${1}
+	dplyr::${1} 
 # glimpse
 snippet gli
-	glimpse(${1})
+	glimpse(${1}) ${2}
 # select
 snippet sel
-	select(${1})
+	select(${1}) ${2}
 # arrange
 snippet arr
-	arrange(${1})
+	arrange(${1}) ${2}
 # filter
 snippet fil
-	dplyr::filter(${1})
+	dplyr::filter(${1}) ${2}
 # group_by
 snippet gro
-	group_by(${1})
+	group_by(${1}) ${2}
 # summarise
 snippet sum
-	summarise(${1})
+	summarise(${1}) ${2}
 # mutate
 snippet mut
-	mutate(${1})
+	mutate(${1}) ${2}
 # count
 snippet cou
-	count(${1}, sort=${2})
+	count(${1}, sort=${2}) ${3}
 # tally
 snippet tal
-	tally(${1}, sort=${2})
+	tally(${1}, sort=${2}) ${3}
 # rename
 snippet ren
-	rename(${1} = ${2})
+	rename(${1} = ${2}) ${3}
 # relocate
 snippet rel
-	relocate(${1})
+	relocate(${1}) ${2}
 # as_tibble
 snippet tib
-	as_tibble
+	as_tibble ${1}
 # print
 snippet pri
 	print(n = ${1})
 # left_join
 snippet lef
-	left_join(${1})	
+	left_join(${1}) ${2}
 # right_join
 snippet rig
-	right_join(${1})
+	right_join(${1}) ${2}
 # distinct
 snippet dis
-	distinct(${1}, .keep_all=TRUE)
+	distinct(${1}, .keep_all=TRUE) ${2}
 # separate_rows
 snippet sep
-	separate_rows(${1}, sep=${2})
+	separate_rows(${1}, sep=${2}) ${3}
 # ungroup
 snippet ung
-	ungroup
+	ungroup ${1}
 # dbplyr
 snippet dbp
 	dbplyr::${1}
 # tidygraph::as_tbl_graph
 snippet graph
-	as_tbl_graph(${1})
+	as_tbl_graph(${1}) ${2}
 # tidygraph::activate
 snippet act
-	activate(${1:nodes})
+	activate(${1:nodes}) ${2}
 # vector
 snippet vec
-	vector(mode = ${1:'numeric/list/character/logical'}, length = ${2})
+	vector(mode = '${1:numeric/list/character/logical}', length = ${2}) ${3}
+snippet . 
+	(. -> ${1})
 # #' comment
 snippet '
 	#' ${1}
-snippet . 
-	(. -> ${1})
-########################################
+# ----------------------------------------
 # Markdown functions
 # rmarkdown::paged_table
 snippet pag
@@ -236,7 +234,7 @@ snippet dtd
                                                                 list(extend='excel',filename='data')),
                                                  text='Download'
 												 ))))  
-########################################
+# ----------------------------------------
 # Markdown
 # The suffix `c` stands for "Clipboard".
 # LINKS
