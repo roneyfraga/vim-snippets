@@ -215,7 +215,7 @@ snippet kab
 snippet '
 	#' ${1}
 # datatable hide collumn
-snippet dt_hide
+snippet dth
     datatable(
               rownames = FALSE,
               extensions = 'Buttons', 
@@ -223,18 +223,17 @@ snippet dt_hide
                              dom = 'Bfrtip', pageLength = ${1},
                              columnDefs = list(list(visible=FALSE, targets=c(${2}))), 
                              buttons = list(list(extend = 'colvis', columns = c(${3})))
-                             )
-              )
-    )
+                             )))
 # datatable download button
-snippet dt_download
+snippet dtd
     datatable(extensions = 'Buttons', rownames=F,
               options = list(dom = 'Bfrtip', pageLength = ${1},
                              buttons = list(list( 
                                                  extend='collection', 
                                                  buttons = list(list(extend='csv',filename='data'),
                                                                 list(extend='excel',filename='data')),
-                                                 text='Download'))))  
+                                                 text='Download'
+												 ))))  
 ########################################
 # Markdown
 # The suffix `c` stands for "Clipboard".
