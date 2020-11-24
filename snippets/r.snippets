@@ -203,3 +203,96 @@ snippet vec
 	vector(${1:'numeric'}, ${2})
 snippet '
 	#' ${1}
+########################################
+# Markdown functions
+# rmarkdown::paged_table
+snippet pag
+	rmarkdown::paged_table()
+# kable table
+snippet kab
+	(kable(.,'html')) %>>% 
+	kable_styling() %>>% 
+	scroll_box(width = "100%", height = "100%")
+# datatable hide collumn
+snippet dth
+    datatable(
+              rownames = FALSE,
+              extensions = 'Buttons', 
+              options = list( 
+                             dom = 'Bfrtip', pageLength = ${1},
+                             columnDefs = list(list(visible=FALSE, targets=c(${2}))), 
+                             buttons = list(list(extend = 'colvis', columns = c(${3})))
+                             ))
+# datatable download button
+snippet dtd
+    datatable(extensions = 'Buttons', rownames=F,
+              options = list(dom = 'Bfrtip', pageLength = ${1},
+                             buttons = list(list( 
+                                                 extend='collection', 
+                                                 buttons = list(list(extend='csv',filename='data'),
+                                                                list(extend='excel',filename='data')),
+                                                 text='Download'
+												 ))))  
+########################################
+# Markdown
+# The suffix `c` stands for "Clipboard".
+# LINKS
+snippet [
+	[${1:text}](http://${2:address})
+snippet -[
+	- [${1:text}](http://${2:address})
+snippet [*
+	[${1:link}](${2})
+snippet [c
+	[${1:link}](${2:`@+`})
+snippet -[*
+	- [${1:link}](${2})
+snippet -[c
+	- [${1:link}](${2:`@+`})
+# IMAGES
+snippet ![
+	![${1}](${2})
+snippet ![c
+	![${1:alt}](${2:`@+`})
+# TEXT BETWEEN 
+snippet <
+	<http://${1:url}>
+snippet <*
+	<${1}>
+snippet <c
+	<`@+`>
+snippet **
+	**${1:bold}**
+snippet **c
+		**`@+`**
+snippet *
+	*${1:italic}*
+snippet *c
+		*`@+`*
+snippet __
+	__${1:bold}__
+snippet __c
+	__`@+`__
+snippet _
+	_${1:italic}_
+snippet _c
+	_`@+`_
+snippet |
+	\`${1:inline code}\`
+snippet |c
+	\``@+`\`
+# CODE 
+snippet `
+	\`\`\`
+	${1:code}
+	\`\`\`
+snippet `c
+	\`\`\`
+	`@+`
+	\`\`\`
+snippet `l
+	\`\`\`${1:language}
+	${2:code}
+	\`\`\`
+snippet `r
+	\`\`\`{r eval=T, echo=T, warning=F, error=T, tidy=F, message=F}
