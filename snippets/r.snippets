@@ -186,7 +186,12 @@ snippet act
 # vector
 snippet vec
 	vector(mode = '${1:numeric/list/character/logical}', length = ${2}) ${3}
-snippet ._
+# janitor::clean_names
+snippet cle
+	janitor::clean_names(${1}) ${2}
+snippet men
+	lobstr::mem_used(${1}) ${2}
+snippet ->
 	(. -> ${1})
 # #' comment
 snippet '
