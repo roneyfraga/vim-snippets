@@ -48,7 +48,7 @@ snippet rep
 	}${3:}
 # progress_bar
 snippet pro
-	progress_bar$new(format = "[:bar] :current/:total (:percent)", total = length(${1:length()}))
+	progress::progress_bar$new(format = "[:bar] :current/:total (:percent)", total = length(${1:length()}))
 # return
 snippet ret
 	return(${1})
