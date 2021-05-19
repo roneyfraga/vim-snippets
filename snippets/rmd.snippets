@@ -1,0 +1,295 @@
+# library
+snippet lib
+	library(${1:package}) ${2}
+# require
+snippet req
+	require(${1:package}) ${2}
+# source 
+snippet sou
+	source('${1:file}') ${2:}
+# install.packages
+snippet install
+	install.packages(c('${1:package.name}'), dependencies = TRUE) ${2}
+# magrittR pipe
+snippet pipe
+	%>%  
+# pipeR  pipe
+snippet pp
+	%>>%  
+# If Condition
+snippet if
+	if(${1:condition}){
+	    ${2:}
+	}${3:}
+snippet els
+	else {
+	    ${1:}
+	}${2:}
+snippet whi
+	while(${1:condition}){
+	    ${2:}
+	}${3:}
+# For Loop
+snippet for
+	for(${1:i} in ${2:range}){
+	    ${3:}
+	}${4:}
+## Function
+snippet fun
+	${1:funname} <- function(${2:})
+	{
+	    ${3:}
+	}${4:}
+# repeat
+snippet rep
+	repeat{
+	    ${1:}
+	    if(${2:condition}) break
+	}${3:}
+# progress_bar
+snippet pro
+	progress::progress_bar$new(format = "[:bar] :current/:total (:percent)", total = length(${1:length()}))
+# return
+snippet ret
+	return(${1})
+	${2:}
+# dataframes, lists, etc
+snippet df
+	${1:name}[${2:rows}, ${3:cols}] ${4:}
+snippet mat
+	matrix(${1:data}, nrow = ${2:rows}, ncol = ${3:cols}) ${4:}
+# apply functions
+snippet app
+	apply(${1:array}, ${2:margin}, ${3:function}) ${4:}
+snippet lap
+	lapply(${1:list}, ${2:function}) ${3:}
+snippet sap
+	lapply(${1:list}, ${2:function}) ${3:}
+snippet vap
+	vapply(${1:list}, ${2:function}, ${3:type}) ${4:}
+snippet map
+	mapply(${1:function}, ${2:...}) ${3:}
+snippet tap
+	tapply(${1:vector}, ${2:index}, ${3:function}) ${4:}
+snippet rap
+	rapply(${1:list}, ${2:function}) ${3:}
+# plot functions
+snippet plo
+	plot(${1:x}, ${2:y}) ${3:}
+snippet img
+	${1:(jpeg,bmp,png,tiff)}(filename = "${2:filename}", width = ${3}, height = ${4}, unit = "${5}")
+	${6:plot}
+	dev.off()${7:}
+# read
+snippet read
+	read.${1:csv}(
+				'${2:file}',
+				header = ${3:TRUE/FALSE},
+				sep = '${4:,}',
+				dec = '${5:.}',
+				row.names = ${6:TRUE/FALSE}
+				) ${7:}
+# write
+snippet write
+	write.${1:csv}(
+				${2:x},
+				file = '${3:}',
+				sep = '${4:,}',
+				row.names = ${5:TRUE/FALSE},
+				col.names = ${6:TRUE/FALSE},
+				na = '${7:NA}'
+				) ${8:}
+# subset
+snippet subset
+	subset(
+			${1:data},
+			${2:subset},
+			${3:select},
+		      )${4:}
+snippet ggp
+	ggplot2::ggplot(${1:data}, aes(${2:aesthetics})) ${3:}
+# import
+snippet	imp
+	rio::import("${1:}") ${2}
+# export
+snippet	exp
+	rio::export(${1:data}, "${2:file}") ${3}
+# dplyr::
+snippet dpl
+	dplyr::${1} 
+# glimpse
+snippet gli
+	dplyr::glimpse(${1}) ${2}
+# select
+snippet sel
+	dplyr::select(${1}) ${2}
+# arrange
+snippet arr
+	dplyr::arrange(${1}) ${2}
+# filter
+snippet fil
+	dplyr::filter(${1}) ${2}
+# group_by
+snippet gro
+	dplyr::group_by(${1}) ${2}
+# summarise
+snippet sum
+	dplyr::summarise(${1}) ${2}
+# mutate
+snippet mut
+	dplyr::mutate(${1}) ${2}
+# count
+snippet cou
+	dplyr::count(${1}, sort = ${2}) ${3}
+# tally
+snippet tal
+	dplyr::tally(${1}, sort = ${2}) ${3}
+# rename
+snippet ren
+	dplyr::rename(${1} = ${2}) ${3}
+# relocate
+snippet rel
+	dplyr::relocate(${1}) ${2}
+# pull
+snippet pul
+	dplyr::pull(${1}) ${2}
+# as_tibble
+snippet tib
+	as_tibble ${1}
+# print
+snippet pri
+	print(n = ${1})
+# left_join
+snippet lef
+	dplyr::left_join(${1}) ${2}
+# right_join
+snippet rig
+	dplyr::right_join(${1}) ${2}
+# distinct
+snippet dis
+	dplyr::distinct(${1}, .keep_all = TRUE) ${2}
+# separate_rows
+snippet sep
+	dplyr::separate_rows(${1}, sep = ${2}) ${3}
+# ungroup
+snippet ung
+	dplyr::ungroup ${1}
+# dbplyr
+snippet dbp
+	dbplyr::${1}
+# tidygraph::as_tbl_graph
+snippet graph
+	tidygraph::as_tbl_graph(${1}) ${2}
+# tidygraph::activate
+snippet act
+	tidygraph::activate(${1:nodes}) ${2}
+# vector
+snippet vec
+	vector(mode = '${1:numeric/list/character/logical}', length = ${2}) ${3}
+# janitor::clean_names
+snippet cle
+	janitor::clean_names(${1}) ${2}
+snippet men
+	lobstr::mem_used(${1}) ${2}
+snippet ->
+	(. -> ${1})
+# #' comment
+snippet '
+	#' ${1}
+# ----------------------------------------
+# Markdown functions
+# rmarkdown::paged_table
+snippet pag
+	rmarkdown::paged_table()
+# kable table
+snippet kab
+	(kable(., 'html')) %>>% 
+	kable_styling() %>>% 
+	scroll_box(width = "100%", height = "100%")
+# datatable hide collumn
+snippet dth
+	datatable(
+		rownames = FALSE,
+		filter = 'bottom',
+		extensions = 'Buttons', 
+		options = list(
+					dom = 'Bfrtip', pageLength = ${1},
+                    columnDefs = list(list(visible = FALSE, targets = c(${2}))), 
+                    buttons = list(list(extend = 'colvis', columns = c(${3})))
+                    ))
+# datatable download button
+snippet dtd
+    datatable(
+		extensions = 'Buttons', 
+		rownames = F, 
+		options = list(
+					dom = 'Bfrtip', 
+					pageLength = ${1}, 
+					buttons = list(list(
+										extend='collection', 
+										buttons = list( list(extend = 'csv', filename = 'data'), 
+														list(extend = 'excel', filename = 'data')), 
+														text='Download'))))  
+# ----------------------------------------
+# Markdown
+# The suffix `c` stands for "Clipboard".
+# LINKS
+snippet [
+	[${1:text}](http://${2:address})
+snippet -[
+	- [${1:text}](http://${2:address})
+snippet [*
+	[${1:link}](${2})
+snippet [c
+	[${1:link}](${2:`@+`})
+snippet -[*
+	- [${1:link}](${2})
+snippet -[c
+	- [${1:link}](${2:`@+`})
+# IMAGES
+snippet ![
+	![${1}](${2})
+snippet ![c
+	![${1:alt}](${2:`@+`})
+# TEXT BETWEEN 
+snippet <
+	<http://${1:url}>
+snippet <*
+	<${1}>
+snippet <c
+	<`@+`>
+snippet **
+	**${1:bold}**
+snippet **c
+		**`@+`**
+snippet *
+	*${1:italic}*
+snippet *c
+		*`@+`*
+snippet __
+	__${1:bold}__
+snippet __c
+	__`@+`__
+snippet _
+	_${1:italic}_
+snippet _c
+	_`@+`_
+snippet |
+	\`${1:inline code}\`
+snippet |c
+	\``@+`\`
+# CODE 
+snippet `
+	\`\`\`
+	${1:code}
+	\`\`\`
+snippet `c
+	\`\`\`
+	`@+`
+	\`\`\`
+snippet `l
+	\`\`\`${1:language}
+	${2:code}
+	\`\`\`
+snippet `r
+	\`\`\`{r eval=T, echo=T, warning=F, error=T, tidy=F, message=F}
