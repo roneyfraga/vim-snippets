@@ -155,7 +155,7 @@ snippet pul
 	dplyr::pull(${1}) ${2}
 # as_tibble
 snippet tib
-	as_tibble ${1}
+	as_tibble() ${1}
 # print
 snippet pri
 	print(n = ${1})
@@ -173,7 +173,7 @@ snippet sep
 	dplyr::separate_rows(${1}, sep = ${2}) ${3}
 # ungroup
 snippet ung
-	dplyr::ungroup ${1}
+	dplyr::ungroup() ${1}
 # dbplyr
 snippet dbp
 	dbplyr::${1}
