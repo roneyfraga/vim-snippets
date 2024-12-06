@@ -406,3 +406,110 @@ snippet zet
 	bibliography: aa-references.bib
 	keywords:
 	---
+
+# ----------------------------------------
+# quarto revealjs
+
+snippet .panel
+	::: {.panel-tabset}
+	### ${1}
+	:::
+
+snippet .callout
+	::: {.callout-${1:note/warning/important/tip/causion} collapse="false" appearance="default", icons=false}
+	${2}
+	:::
+
+snippet .columns
+	::: columns
+	::: {.column width="50%"}
+	:::
+	::: {.column width="50%"}
+	:::
+	:::
+
+snippet .rows
+	::: rows
+	::: {.row height="50%"}
+	:::
+	::: {.row height="50%"}
+	:::
+	:::
+
+snippet .aside
+	::: aside
+	${1}
+	:::
+
+snippet .notes
+	:::{.notes}
+	${1}
+	:::
+
+snippet .footer
+	::: footer
+	${1}
+	:::
+
+snippet .text-block
+	:::{style="font-size: 100%; text-align: left; line-height: 1.0em; color: black; "}
+	${1}
+	:::
+
+snippet .text-inline
+	{style="font-size: 100%; text-align: left; line-height: 1.0em; color: black; "}
+
+snippet .text-bigger
+	::: {.r-fit-text}
+	${1}
+	:::
+
+snippet .fig
+	![](${1}){#fig-crossref width="100%" height="100%" fig-align="center" fig-alt="Figure Title"} 
+
+snippet .fig-stretch
+	![](${1}){#fig-crossref .r-stretch fig-alt="Figure Title"} 
+
+snippet .chunk
+	#| label: something
+	#| eval: false/true
+	#| echo: true/true
+	#| output: true/false/axis
+	#| code-fold: show/true/false
+	#| warning: false
+	#| error: false
+	#| include: true
+
+snippet .chunk-table
+	#| eval: false/true
+	#| echo: true/true
+	#| output: true/false/axis
+	#| code-fold: show/true/false
+	#| warning: false
+	#| error: false
+	#| include: true
+	#| label: tbl-something
+	#| tbl-cap: Table Title
+	#| tbl-subcap: Table Subtitle
+	#| tbl-cap-location: top/bottom/margin
+	#| tbl-colwidths: auto
+
+snippet .chunk-fig
+	#| eval: false/true
+	#| echo: true/true
+	#| output: true/false/axis
+	#| code-fold: show/true/false
+	#| warning: false
+	#| error: false
+	#| include: true
+	#| fig-align: default/left/right/center
+	#| fig-cap-location: top/bottom/margin
+	#| fig-width: 
+	#| fig-height: 
+	#| fig-format: retina/png/jpeg/svg/pdf
+	#| fig-dpi: 
+	#| label: fig-something
+	#| fig-cap: Figue Caption
+	#| fig-alt: Figure Subtitle
+
+
