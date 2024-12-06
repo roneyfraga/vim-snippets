@@ -410,17 +410,17 @@ snippet zet
 # ----------------------------------------
 # quarto revealjs
 
-snippet .panel
+snippet panel-tabset
 	::: {.panel-tabset}
 	### ${1}
 	:::
 
-snippet .callout
+snippet callout
 	::: {.callout-${1:note/warning/important/tip/causion} collapse="false" appearance="default", icons=false}
 	${2}
 	:::
 
-snippet .columns
+snippet columns
 	::: columns
 	::: {.column width="50%"}
 	:::
@@ -428,7 +428,7 @@ snippet .columns
 	:::
 	:::
 
-snippet .rows
+snippet rows
 	::: rows
 	::: {.row height="50%"}
 	:::
@@ -436,42 +436,42 @@ snippet .rows
 	:::
 	:::
 
-snippet .aside
+snippet aside
 	::: aside
 	${1}
 	:::
 
-snippet .notes
+snippet notes
 	:::{.notes}
 	${1}
 	:::
 
-snippet .footer
+snippet footer
 	::: footer
 	${1}
 	:::
 
-snippet .text-block
+snippet text-block
 	:::{style="font-size: 100%; text-align: left; line-height: 1.0em; color: black; "}
 	${1}
 	:::
 
-snippet .text-inline
+snippet text-inline
 	{style="font-size: 100%; text-align: left; line-height: 1.0em; color: black; "}
 
-snippet .text-bigger
+snippet text-bigger
 	::: {.r-fit-text}
 	${1}
 	:::
 
-snippet .fig
+snippet fig
 	![](${1}){#fig-crossref width="100%" height="100%" fig-align="center" fig-alt="Figure Title"} 
 
-snippet .fig-stretch
+snippet fig-stretch
 	![](${1}){#fig-crossref .r-stretch fig-alt="Figure Title"} 
 
-snippet .chunk
-	#| label: something
+snippet chunk
+	#| label: ${1}
 	#| eval: false/true
 	#| echo: true/true
 	#| output: true/false/axis
@@ -480,7 +480,7 @@ snippet .chunk
 	#| error: false
 	#| include: true
 
-snippet .chunk-table
+snippet chunk-table
 	#| eval: false/true
 	#| echo: true/true
 	#| output: true/false/axis
@@ -488,13 +488,13 @@ snippet .chunk-table
 	#| warning: false
 	#| error: false
 	#| include: true
-	#| label: tbl-something
+	#| label: tbl-${1}
 	#| tbl-cap: Table Title
 	#| tbl-subcap: Table Subtitle
 	#| tbl-cap-location: top/bottom/margin
 	#| tbl-colwidths: auto
 
-snippet .chunk-fig
+snippet chunk-fig
 	#| eval: false/true
 	#| echo: true/true
 	#| output: true/false/axis
@@ -508,7 +508,7 @@ snippet .chunk-fig
 	#| fig-height: 
 	#| fig-format: retina/png/jpeg/svg/pdf
 	#| fig-dpi: 
-	#| label: fig-something
+	#| label: fig-${1}
 	#| fig-cap: Figue Caption
 	#| fig-alt: Figure Subtitle
 
