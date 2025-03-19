@@ -1,15 +1,15 @@
 # library
 snippet lib
-	library(${1:package}) ${2}
+	library(${1:package})
 # require
 snippet req
-	require(${1:package}) ${2}
+	require(${1:package})
 # source 
 snippet sou
-	source('${1:file}') ${2:}
+	source('${1:file}')
 # install.packages
 snippet install
-	install.packages(c('${1:package.name}'), dependencies = TRUE) ${2}
+	install.packages(c('${1:package.name}'), dependencies = TRUE)
 # magrittR pipe
 snippet pipe
 	%>>%  
@@ -24,66 +24,65 @@ snippet o
 snippet if
 	if(${1:condition}){
 	    ${2:}
-	}${3:}
+	}
 snippet els
 	else {
 	    ${1:}
-	}${2:}
+	}
 snippet whi
 	while(${1:condition}){
 	    ${2:}
-	}${3:}
+	}
 # For Loop
 snippet for
 	for(${1:i} in ${2:range}){
 	    ${3:}
-	}${4:}
+	}
 # lambda
 snippet lam
-	{\(${1:x}) ${2}}() ${3}
+	{\(${1:x}) ${2}}()
 # function
 snippet fun
-	function(${1:x}) ${2}
+	function(${1:x})
 # repeat
 snippet rep
 	repeat{
 	    ${1:}
 	    if(${2:condition}) break
-	}${3:}
+	}
 # progress_bar
 snippet pro
 	progress::progress_bar$new(format = "[:bar] :current/:total (:percent)", total = length(${1:length()}))
 # return
 snippet ret
 	return(${1})
-	${2:}
 # dataframes, lists, etc
 snippet df
-	${1:name}[${2:rows}, ${3:cols}] ${4:}
+	${1:name}[${2:rows}, ${3:cols}]
 snippet mat
-	matrix(${1:data}, nrow = ${2:rows}, ncol = ${3:cols}) ${4:}
+	matrix(${1:data}, nrow = ${2:rows}, ncol = ${3:cols})
 # apply functions
 snippet app
-	apply(${1:array}, ${2:margin}, ${3:function}) ${4:}
+	apply(${1:array}, ${2:margin}, ${3:function})
 snippet lap
-	lapply(${1:list}, ${2:function}) ${3:}
+	lapply(${1:list}, ${2:function})
 snippet sap
-	lapply(${1:list}, ${2:function}) ${3:}
+	lapply(${1:list}, ${2:function})
 snippet vap
-	vapply(${1:list}, ${2:function}, ${3:type}) ${4:}
+	vapply(${1:list}, ${2:function}, ${3:type})
 # snippet map
 # 	mapply(${1:function}, ${2:...}) ${3:}
 snippet tap
-	tapply(${1:vector}, ${2:index}, ${3:function}) ${4:}
+	tapply(${1:vector}, ${2:index}, ${3:function})
 snippet rap
-	rapply(${1:list}, ${2:function}) ${3:}
+	rapply(${1:list}, ${2:function})
 # plot functions
 snippet plo
-	plot(${1:x}, ${2:y}) ${3:}
+	plot(${1:x}, ${2:y})
 snippet img
 	${1:(jpeg,bmp,png,tiff)}(filename = "${2:filename}", width = ${3}, height = ${4}, unit = "${5}")
 	${6:plot}
-	dev.off()${7:}
+	dev.off()
 # read
 snippet read
 	read.${1:csv}(
@@ -92,7 +91,7 @@ snippet read
 				sep = '${4:,}',
 				dec = '${5:.}',
 				row.names = ${6:TRUE/FALSE}
-				) ${7:}
+				)
 # write
 snippet write
 	write.${1:csv}(
@@ -102,115 +101,115 @@ snippet write
 				row.names = ${5:TRUE/FALSE},
 				col.names = ${6:TRUE/FALSE},
 				na = '${7:NA}'
-				) ${8:}
+				)
 # subset
 snippet subset
 	subset(
 			${1:data},
 			${2:subset},
 			${3:select},
-		      )${4:}
+		      )
 snippet ggp
-	ggplot2::ggplot(${1:data}, aes(${2:aesthetics})) ${3:}
+	ggplot2::ggplot(${1:data}, aes(${2:aesthetics}))
 # import
 snippet	imp
-	rio::import('rawfiles/${1:}') ${2}
+	rio::import('rawfiles/${1:}')
 # export
 snippet	exp
-	rio::export(${1:data}, 'rawfiles/${2:file}') ${3}
+	rio::export(${1:data}, 'rawfiles/${2:file}')
 # dplyr::
 snippet dpl
 	dplyr::${1} 
 # glimpse
 snippet gli
-	dplyr::glimpse(${1}) ${2}
+	dplyr::glimpse(${1})
 # select
 snippet sel
-	dplyr::select(${1}) ${2}
+	dplyr::select(${1})
 # arrange
 snippet arr
-	dplyr::arrange(${1}) ${2}
+	dplyr::arrange(${1})
 # filter
 snippet fil
-	dplyr::filter(${1}) ${2}
+	dplyr::filter(${1})
 # group_by
 snippet gro
-	dplyr::group_by(${1}) ${2}
+	dplyr::group_by(${1})
 # summarise
 snippet sum
-	dplyr::summarise(${1}) ${2}
+	dplyr::summarise(${1})
 # mutate
 snippet mut
-	dplyr::mutate(${1}) ${2}
+	dplyr::mutate(${1})
 # count
 snippet cou
-	dplyr::count(${1}, sort = T) ${2}
+	dplyr::count(${1}, sort = T)
 # tally
 snippet tal
-	dplyr::tally(${1}, sort = ${2}) ${3}
+	dplyr::tally(${1}, sort = ${2})
 # rename
 snippet ren
-	dplyr::rename(${1} = ${2}) ${3}
+	dplyr::rename(${1} = ${2})
 # relocate
 snippet rel
-	dplyr::relocate(${1}) ${2}
+	dplyr::relocate(${1})
 # relocate
 snippet rec
-	dplyr::recode(${1}) ${2}
+	dplyr::recode(${1})
 # pull
 snippet pul
-	dplyr::pull(${1}) ${2}
+	dplyr::pull(${1})
 # desc
 snippet des
-	dplyr::desc(${1}) ${2}
+	dplyr::desc(${1})
 # tibble::
 snippet tib
 	tibble::${1}
 snippet ast
 	tibble::as_tibble() ${1}
 snippet col
-	tibble::collect() ${1}
+	tibble::collect()
 # left_join
 snippet lef
-	dplyr::left_join(${1}) ${2}
+	dplyr::left_join(${1})
 # right_join
 snippet rig
-	dplyr::right_join(${1}) ${2}
+	dplyr::right_join(${1})
 # full_join
 snippet ful
-	dplyr::full_join(${1}) ${2}
+	dplyr::full_join(${1})
 # distinct
 snippet dis
-	dplyr::distinct(${1:var_name,}.keep_all = TRUE) ${2}
+	dplyr::distinct(${1:var_name,}.keep_all = TRUE)
 # ungroup
 snippet ung
-	dplyr::ungroup() ${1}
+	dplyr::ungroup()
 # dplyr::rowwise
 snippet row
-	dplyr::rowwise(${1}) ${2}
+	dplyr::rowwise(${1})
 # dplyr::case_when
 snippet cas
-	dplyr::case_when(${1}) ${2}
+	dplyr::case_when(${1})
 # dplyr::across
 snippet acr
-	dplyr::across(${1}) ${2}
+	dplyr::across(${1})
 # bind_rows bind_cols
 snippet bin
-	dplyr::bind_${1:rows/cols}(${2}) ${3}
+	dplyr::bind_${1:rows/cols}(${2})
 # dplyr::show_query 
 snippet sho
-	dplyr::show_query()${1}
+	dplyr::show_query()
 # tidyr
 snippet tid
 	tidyr::${1}
 # tidyr::separate_rows
 snippet nes
-	tidyr::nest(${1}) ${2}
+	tidyr::nest(${1})
 snippet unn
-	tidyr::unnest(${1}) ${2}
+	tidyr::unnest(${1})
 # tidyr::separate_rows
 snippet sep
-	tidyr::separate_rows(${1}, sep = ${2}) ${3}
+	tidyr::separate_rows(${1}, sep = ${2})
 # print
 snippet pri
 	print(n = ${1:Inf/10/50})
@@ -219,64 +218,64 @@ snippet dbp
 	dbplyr::${1}
 # tidygraph::as_tbl_graph
 snippet gra
-	tidygraph::as_tbl_graph(${1}) ${2}
+	tidygraph::as_tbl_graph(${1})
 # tidygraph::activate
 snippet act
-	tidygraph::activate(${1:nodes/edges}) ${2}
+	tidygraph::activate(${1:nodes/edges})
 # vector
 snippet vec
-	vector(mode = '${1:numeric/list/character/logical}', length = ${2}) ${3}
+	vector(mode = '${1:numeric/list/character/logical}', length = ${2})
 # janitor::clean_names
 snippet cle
-	janitor::clean_names() ${1}
+	janitor::clean_names()
 # lobstr::mem_used
 snippet men
-	lobstr::mem_used(${1}) ${2}
+	lobstr::mem_used(${1})
 # purrr::
 snippet pur
 	purrr::${1}
 # purrr::map
 snippet map
-	purrr::map(${1}) ${2}
+	purrr::map(${1})
 # purrr::map_
 snippet map_
-	purrr::map_${1:chr/dbl/int/lgl/dfc/lgl/dfc/at/if}(${2}) ${3}
+	purrr::map_${1:chr/dbl/int/lgl/dfc/lgl/dfc/at/if}(${2})
 # purrr::pmap
 snippet pma
-	purrr::pmap(${1}) ${2}
+	purrr::pmap(${1})
 # purrr::pmap_
 snippet pma_
-	purrr::pmap_${1:chr/dbl/int/lgl/dfc/lgl/dfc/at/if}(${2}) ${3}
+	purrr::pmap_${1:chr/dbl/int/lgl/dfc/lgl/dfc/at/if}(${2})
 # purrr::imap
 snippet ima
-	purrr::imap(${1}) ${2}
+	purrr::imap(${1})
 # purrr::imap_
 snippet ima_
-	purrr::imap_${1:chr/dbl/int/lgl/dfc/lgl/dfc/at/if}(${2}) ${3}
+	purrr::imap_${1:chr/dbl/int/lgl/dfc/lgl/dfc/at/if}(${2})
 # purrr::flatte_
 snippet fla_
-	purrr::flatten_${1:chr/dbl/int/lgl/dfc}(${2}) ${3}
+	purrr::flatten_${1:chr/dbl/int/lgl/dfc}(${2})
 # walk
 snippet wal
-	purrr::walk(${1}) ${2}
+	purrr::walk(${1})
 # pluck
 snippet plu
-	purrr::pluck(${1}) ${2}
+	purrr::pluck(${1})
 # safely
 snippet saf
-	purrr::safely(${1}) ${2}
+	purrr::safely(${1})
 # keep
 snippet kee
-	purrr::keep(${1}) ${2}
+	purrr::keep(${1})
 # discard
 snippet dis
-	purrr::discard(${1}) ${2}
+	purrr::discard(${1})
 # tictoc::tic
 snippet tic
-	tictoc::tic() ${1}
+	tictoc::tic()
 # tictoc::toc
 snippet toc
-	tictoc::toc() ${1}
+	tictoc::toc()
 snippet ins
 	renv::install('${1}')
 # dtplyr
@@ -284,25 +283,25 @@ snippet dtp
 	dtplyr::${1}
 # dtplyr::lazy_dt
 snippet laz
-	dtplyr::lazy_dt() ${1}
+	dtplyr::lazy_dt()
 # data.table::
 snippet dat
 	data.table::${1}
 # data.table::fread
 snippet fre
-	data.table::fread(${1}) ${2}
+	data.table::fread(${1})
 # data.table::fwrite
 snippet fwr
-	data.table::fwrite(${1}) ${2}
+	data.table::fwrite(${1})
 # data.table::setDT
 snippet set
-	data.table::setDT(${1}) ${2}
+	data.table::setDT(${1})
 # data.table::getDTthreads
 snippet dtt
-	data.table::getDTthreads(${1}) ${2}
+	data.table::getDTthreads(${1})
 # data.table::as.data.table
 snippet adt
-	data.table::as.data.table(${1}) ${2}
+	data.table::as.data.table(${1})
 # tidyfast::
 snippet tdf
 	tidyfast::${1}
@@ -511,5 +510,4 @@ snippet chunk-fig
 	#| label: fig-${1}
 	#| fig-cap: Figue Caption
 	#| fig-alt: Figure Subtitle
-
 
