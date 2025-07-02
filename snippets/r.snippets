@@ -417,7 +417,7 @@ snippet panel-tabset
 	:::
 
 snippet callout
-	::: {.callout-${1:note/warning/important/tip/causion} collapse="false" appearance="default", icons=false}
+	::: {.callout-${1:note/warning/important/tip/causion} collapse="false" appearance="default" icons=false}
 	${2}
 	:::
 
@@ -513,3 +513,7 @@ snippet chunk-fig
 	#| fig-cap: Figue Caption
 	#| fig-alt: Figure Subtitle
 
+snippet sub
+	suppressPackageStartupMessages({
+	${1}
+	})
