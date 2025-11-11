@@ -419,8 +419,9 @@ snippet panel-tabset
 	:::
 
 snippet callout
-	::: {.callout-${1:note/warning/important/tip/causion} collapse="false" appearance="default" icons=false}
-	${2}
+	::: {.callout-${1:note/warning/important/tip/causion} title="Title" collapse="false" appearance="${2:default/simple/mininal}" icons=false}
+	${3}
+	<!-- cross-references with: #nte-example-id #tip- #wrn- #imp- #cau- -->
 	:::
 
 snippet columns
